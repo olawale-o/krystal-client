@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Nunito:wght@800&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html , body{
+    width: 100%;
+}
+html{
+    font-size: 10px;
+}
+body{
+    font-size: 62.5%;
+    background: #FEFEFF 0% 0% no-repeat padding-box;
+    font-family: 'Karla', 'Nunito' , sans-serif;
+}
+a{
+    text-decoration: none;
+    font: normal normal normal 1.8rem/2.2rem "Karla";
+    color: #7E7E7E;
+}
+a:hover{
+    color: #FBB30B;
+}
+ul {
+    list-style: none;
+}
+img{
+    
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+input::placeholder{
+    font: normal normal normal 1.8rem/2.2rem "Karla";
+    letter-spacing: -0.36px;
+    color: #7E7E7E;
+    opacity: 0.7;
+}
+.main{
+
+}
+.active{
+    color: #FBB30B;
+}
+.field{
+    width: 100%;
+    position: relative;
+}
+.input{
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 1px solid #ECECEC;
+    border-radius: 1.2rem;
+    opacity: 1;
+    outline: none;
+}
+.input:focus{
+    border: 1px solid #d6cdcd;
+}
+.btn{
+    cursor: pointer;
+    color: #FEFEFF;
+    font-size: 1.5rem;
+    outline: none;
+    border: none;
+}
