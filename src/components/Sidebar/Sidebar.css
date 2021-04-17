@@ -1,0 +1,32 @@
+.sidebar{
+    font-size: 1.8rem;
+    border: 1px solid #ECECEC;
+    color: #514C5D;
+    padding-top: 2rem;
+    padding-left: 2.5rem;
+}
+.sidebar__top-logo{
+    width: 101px;
+    height: 41px;
+}
+.sidebar__bottom-link-item{
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+}
+.sidebar__bottom-link-item i {
+    margin-right: 1rem;
+}
+.sidebar__bottom-link{
+    font: normal normal normal 1.8rem/2.2rem 'Karla';
+    opacity: 0.5;
+    letter-spacing: -0.36px;
+}
+.sidebar__bottom-link:hover{
+    color: #FBB30B;
+    opacity: 1;
+}
+.sidebar__bottom-link-item:hover{
+    color: #FBB30B;
+    opacity: 1;
+}

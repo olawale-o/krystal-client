@@ -1,0 +1,44 @@
+.header{
+    opacity: 1;
+    position: static;
+}
+
+.nav{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    padding: 1rem 0;
+}
+.field i{
+    font: normal normal normal 1.8rem/2.2rem 'Karla';
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+.input{
+    padding-left: 2.5rem;
+}
+.nav__right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.nav__right-links{
+    display: flex;
+    justify-content: space-between;
+    flex: 0 0 10rem;
+    margin-right: 4.5rem;
+}
+.nav__right-link{
+    display: inline-block;
+    font-size: 2.5rem;
+}
+
+.nav__right-link i{
+    font: normal normal normal 1.8rem/2.2rem "Karla";
+}
+.nav__right-logo{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 1.6rem;
+}
