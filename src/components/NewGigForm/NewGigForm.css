@@ -1,0 +1,20 @@
+.new-gig-form{
+    width: 80%;
+}
+.links{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font: normal normal normal 1.6rem/1.8rem "Karla";
+    letter-spacing: -0.36px;
+    color: #565D74;
+    opacity: 0.7;
+    margin-bottom: 2rem;
+    
+}
+
+.links > a{
+    font-size: 1rem;
+    text-decoration: underline;
+    margin-left: 10px;
+}

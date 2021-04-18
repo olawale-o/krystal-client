@@ -1,0 +1,43 @@
+.page{
+    font: normal normal normal 2.5rem/3.5rem 'Nunito';
+    letter-spacing: 0px;
+    color: #565D74;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+.new-gig__form{
+    display: grid;
+    grid-template-columns: 20rem 40rem;
+    column-gap: 1.5rem;
+}
+
+.new-gig__left{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 30px 50px #0000000D;
+    border: 1px solid #F6F6F6;
+    border-radius: 2rem;
+    opacity: 1;
+    padding: 1.5rem;
+    align-self: start;
+}
+.new-gig__left-item:first-child{
+    margin-top: 0;
+}
+.new-gig__left-item{
+    margin-top: 2rem;
+}
+.new-gig__left-item h6{
+    font: normal normal normal 2rem/2.3rem "Karla";
+    letter-spacing: -1px;
+    color: #565D74;
+    opacity: 0.3;
+}
+.new-gig__form-right{
+    padding: 2rem;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #ECECEC;
+    border-radius: 20px;
+    opacity: 1;
+    
+}
