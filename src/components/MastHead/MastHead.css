@@ -10,16 +10,6 @@
     color: #2C263D;
     opacity: 0.8;
 }
-.btn-gig{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2F417E;
-    width: 10rem;
-    height: 3rem;
-    padding: 2rem 0.6rem;
-    border-radius: 1rem;
-}
 .btn-gig span{
     margin-right: auto;
     display: inline-block;
