@@ -3,6 +3,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 html , body{
     width: 100%;
@@ -73,6 +74,9 @@ label{
 .inputs div:nth-child(2){
     margin-left: 1rem;
 }
+.full-width{
+    width: 100%;
+}
 .input{
     width: 100%;
     padding: 1rem 1.2rem;
@@ -138,7 +142,10 @@ label{
     -webkit-animation: loading ease-in 0.5 infinite;
     animation: loading 0.5s ease-in infinite;
 }
-
+.error {
+    font-size: 1.2rem;
+    color: red;
+}
 @keyframes loading {
     from{
       transform: rotate(0turn);
