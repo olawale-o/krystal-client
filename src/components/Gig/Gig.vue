@@ -2,6 +2,7 @@
     <div class="gig">
         <Navbar />
         <MastHead @showNewGigForm = "onShowNewGigForm" :isShow="isShow" />
+        <!-- <NewGig /> -->
         <NewGig v-if="isShow" @showNewGigForm = "onShowNewGigForm" />
         <GigsList v-if="!isShow"  />
 
