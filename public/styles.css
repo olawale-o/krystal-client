@@ -38,6 +38,15 @@ input::placeholder{
     color: #7E7E7E;
     opacity: 0.7;
 }
+label{
+    display: block;
+    width: 100%;
+    font: normal normal normal 1.8rem/2.2rem "Karla";
+    letter-spacing: -0.36px;
+    color: #565D74;
+    opacity: 0.7;
+
+}
 .main{
 
 }
@@ -48,11 +57,27 @@ input::placeholder{
     width: 100%;
     position: relative;
 }
+.field__row{
+
+    margin-bottom: 1.5rem;
+}
+.labels{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+.inputs{
+    display: flex;
+    justify-content: space-between;
+}
+.inputs div:nth-child(2){
+    margin-left: 1rem;
+}
 .input{
     width: 100%;
     padding: 1rem 1.2rem;
     border: 1px solid #ECECEC;
-    border-radius: 1.2rem;
+    border-radius: 1.15rem;
     opacity: 1;
     outline: none;
 }
@@ -65,4 +90,37 @@ input::placeholder{
     font-size: 1.5rem;
     outline: none;
     border: none;
+}
+.btn-default{
+    width: 10rem;
+    height: 3rem;
+    padding: 2rem 0.6rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: normal normal normal 1.8re/2.6rem "Karla";
+    letter-spacing: 0px;
+    color: #565D74;
+    opacity: 1;
+}
+.btn-gig{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2F417E;
+    width: 10rem;
+    height: 3rem;
+    padding: 2rem 0.6rem;
+    border-radius: 1rem;
+}
+.btn-gig{
+    justify-content: center;
+}
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+.buttons button:first-child{
+    margin-right: 1rem;
 }
