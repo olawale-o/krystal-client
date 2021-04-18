@@ -68,7 +68,7 @@
                                 {{ gig.role }}
                             </span>
                             <span class="data__text"> {{ gig.company }} </span>
-                            <span class="data__text">20th, June 2021</span>
+                            <span class="data__text">{{  gig.created_at }}</span>
                             <span class="data__text">{{ gig.min_salary }} - {{ gig.max_salary }}</span>
                             <button class="btn btn-delete">Delete</button>
                         </div>
