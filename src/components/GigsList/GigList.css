@@ -86,6 +86,7 @@
     letter-spacing: -0.36px;
     color: #0B0913;
     opacity: 1;
+    text-transform: capitalize;
 }
 .btn-delete{
     font-weight: bold;

@@ -59,19 +59,23 @@
                     <span class="head__text"></span>
                 </div>
                 <div class="gigs__table-content">
-                    <div class="gigs_data">
-
-                        <span>
-                            <input type="checkbox" name="" id="">
-                        </span>
-                        <span class="data__text">
-                            Product Designer
-                        </span>
-                        <span class="data__text">TM 360</span>
-                        <span class="data__text">20th, June 2021</span>
-                        <span class="data__text">20000 - 30000</span>
-                        <button class="btn btn-delete">Delete</button>
-
+                    <template v-if="!loading">
+                        <div class="gigs_data" v-for="gig in gigs" :key="gig.id">
+                            <span>
+                                <input type="checkbox" name="" id="">
+                            </span>
+                            <span class="data__text">
+                                {{ gig.role }}
+                            </span>
+                            <span class="data__text"> {{ gig.company }} </span>
+                            <span class="data__text">20th, June 2021</span>
+                            <span class="data__text">{{ gig.min_salary }} - {{ gig.max_salary }}</span>
+                            <button class="btn btn-delete">Delete</button>
+                        </div>
+                    </template>
+                    
+                    <div class="loading__container" v-if="loading">
+                        <div class="loading"></div>
                     </div>
                 </div>
             </div>
@@ -84,10 +88,29 @@
 </template>
 
 <script>
+    import { useStore } from 'vuex';
+    import { computed, onMounted }  from 'vue';
+    import { fetchAllGigs } from '../../store/gigs/actions/action_creators';
     export default {
         name: 'GigsList',
+        
         setup(){
 
+            const store  = useStore();
+            let args = {
+                endPoint: "/gigs/all",
+                method: 'GET'
+            }
+            const storeAsync = async () => {
+                await store.dispatch(fetchAllGigs(args));
+            }
+            onMounted(storeAsync)
+
+            return {
+                storeAsync,
+                gigs: computed(() => store.getters["gigs/gigs"]),
+                loading: computed(() => store.getters.loading),
+            }
         }
     }
 </script>
