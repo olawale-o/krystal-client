@@ -1,7 +1,10 @@
 import {createRouter, createWebHistory } from 'vue-router'
 
 const routes  = [
-
+    {
+        path: "/",
+        redirect: { name: 'Gigs' }
+    },
     {
         path: "/gigs",
         name: 'Gigs',
