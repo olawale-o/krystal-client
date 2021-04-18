@@ -1,6 +1,6 @@
 export default function() {
 
-    const BASE_URI = process.env == "development" ? "http://localhost:8000/api" : "https://powerful-wave-69047.herokuapp.com/";
+    const BASE_URI = "https://powerful-wave-69047.herokuapp.com/";
     const headers = {
         headers: {
             "Content-type": "application/json;charset=UTF-8",
