@@ -1,9 +1,5 @@
-.new-gig__form-right{
-    padding: 2rem;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #ECECEC;
-    border-radius: 20px;
-    opacity: 1;
+.new-gig-form{
+    width: 80%;
 }
 .btn-gig{
     justify-content: center;

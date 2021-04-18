@@ -60,7 +60,7 @@
                 <div class="field">
                     <div class="buttons">
                         <button class="btn btn-default">Cancel</button>
-                        <button class="btn btn-gig">Continue</button>
+                        <button class="btn btn-gig" @click="$emit('changeIsNext')">Continue</button>
                     </div>
                 </div>
             </form>
@@ -69,9 +69,13 @@
 </template>
 
 <script>
-export default {
-    name: 'NewGigForm'
-}
+    
+    export default {
+        name: 'NewGigForm', 
+        setup() {
+
+        }
+    }
 </script>
 <style src="./NewGigForm.css" scoped>
 

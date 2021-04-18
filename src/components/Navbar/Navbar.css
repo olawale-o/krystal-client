@@ -1,6 +1,8 @@
 .header{
     opacity: 1;
     position: static;
+    border-bottom: 1px solid #ECECEC;
+    padding: 1rem 3rem;
 }
 
 .nav{
