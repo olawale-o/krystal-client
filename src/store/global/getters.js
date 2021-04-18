@@ -1,3 +1,3 @@
 export let getters  = {
-    loading: (state) => state.loading,
+    loading: (state) => state.isLoading,
 }

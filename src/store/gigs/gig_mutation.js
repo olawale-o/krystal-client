@@ -6,5 +6,9 @@ export const gigsMutations = {
         state.gigs = payload.credentials
     },
 
+    newGigs(state,payload) {
+        state.gigs = [payload.credentials,...state.gigs]
+    },
+
 
 }

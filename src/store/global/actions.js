@@ -1,9 +1,9 @@
 export let actions = {
-    loading({ commit }, { type, payload }) {   
-        console.log(payload)
+    loading({ commit }, { type, credentials }) {   
+        console.log(credentials)
         commit({
             type: type,
-            credentials: payload
+            credentials: credentials
         })
     }
 

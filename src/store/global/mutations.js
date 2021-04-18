@@ -1,3 +1,3 @@
 export let mutations = {
-    loading: (state, { payload }) => state.loading = payload
+    loading: (state, { credentials }) => state.isLoading = credentials
 }
