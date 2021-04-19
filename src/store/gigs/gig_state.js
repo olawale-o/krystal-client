@@ -1,5 +1,3 @@
-export const gigStates = () => ({
-   
+export const gigStates = () => ({   
     gigs: [],
-
 }); 

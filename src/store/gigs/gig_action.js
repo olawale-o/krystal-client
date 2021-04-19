@@ -3,25 +3,37 @@ const { getAllGigs,addGigs } = routes();
 
 
 export const gigActions  = {
+    
+    loading({ commit }, { type, payload }) {
+
+        let actionType = type
+        commit({
+            type: actionType,
+            credentials: payload
+        })
+    },
 
     async fetchAllGigs({ dispatch, commit }, { type, payload }){
 
-        dispatch({type: 'loading', payload: true}, {root: true });
-
         let actionType =  type.split("/")[1]
+        dispatch({type: "loading", payload: true}, {root:true});
+
         
         const {response: { gigs } } = await getAllGigs(payload);
         
-        commit({
-            type: actionType,
-            credentials: gigs
-        });
-        dispatch({type: 'loading', payload: true}, {root: true });
+        if(gigs) {
+
+            commit({
+                type: actionType,
+                credentials: gigs
+            });
+            dispatch({type: "loading", payload: false}, {root: true});
+        }
     },
 
     async newGigs({ dispatch,commit }, {type, payload }){
         
-        dispatch({type: 'loading', credentials: true}, {root: true });
+        dispatch({type: "loading", payload: true}, {root: true} );
         
         let actionType =  type.split("/")[1]
         
@@ -32,9 +44,9 @@ export const gigActions  = {
                 type: actionType,
                 credentials: payload
             });
+            dispatch({type, payload: false}, { root: true });
         }
         
-        dispatch({type: 'loading', credentials: false}, {root: true });
     },
 
 };
