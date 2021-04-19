@@ -10,7 +10,7 @@ export default function() {
 
     const connect = async (args) => {
         const endPoint  = args["endPoint"];
-        const body =  args["body"];
+        const body =  args["body"] || null;
         const method = args["method"];
         const token  = args['token'] || '';
         const authorization = token ?  `Bearer ${token}` : '' ;
@@ -47,10 +47,14 @@ export default function() {
         return await response.json();
     };
 
+    const removeGig = async (args) => {
+        return await connect(args)
+    }
+
 
     return {
 
-        getAllGigs, addGigs
+        getAllGigs, addGigs, removeGig
     }
 
 }
