@@ -1,5 +1,5 @@
 import routes from '@/routes';
-const { getAllGigs,addGigs } = routes();
+const { getAllGigs,addGigs,removeGig } = routes();
 
 
 export const gigActions  = {
@@ -44,7 +44,25 @@ export const gigActions  = {
                 type: actionType,
                 credentials: payload
             });
-            dispatch({type, payload: false}, { root: true });
+            dispatch({type: "loading", payload: false}, { root: true });
+        }
+        
+    },
+    async deleteGig({ dispatch,commit }, {type, payload }){
+        const id = payload.gigId
+        dispatch({type: "loading", payload: true}, {root: true} );
+        
+        let actionType =  type.split("/")[1]
+        
+        const {response} = await removeGig(payload);
+    
+        if(response) {
+            
+            commit({
+                type: actionType,
+                credentials: id
+            });
+            dispatch({type: "loading", payload: false}, { root: true });
         }
         
     },

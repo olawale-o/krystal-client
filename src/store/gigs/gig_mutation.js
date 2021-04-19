@@ -10,5 +10,9 @@ export const gigsMutations = {
         state.gigs = [payload.credentials,...state.gigs]
     },
 
+    deleteGig(state,{ credentials }) {
+        state.gigs = state.gigs.filter((gig) => gig.id != credentials)
+    },
+
 
 }
