@@ -27,14 +27,14 @@
                     <label for="">Location</label>
                 </div>
                 <div class="inputs">
-                    <div>
+                    <div class="full-width">
                         <Field class="input" name="country" as ="select">
                             <option value="">Location</option>
                             <option value="1">Nigeria</option>
                         </Field>
                         <ErrorMessage name="country" class="error" as="span" />
                     </div>
-                    <div>
+                    <div class="full-width">
                         <Field  class="input" name="region" as="select">
                             <option value="">State/Region</option>
                             <option value="1">Lagos</option>
