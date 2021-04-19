@@ -70,7 +70,7 @@
                             <span class="data__text"> {{ gig.company }} </span>
                             <span class="data__text">{{  gig.created_at }}</span>
                             <span class="data__text">{{ gig.min_salary }} - {{ gig.max_salary }}</span>
-                            <button class="btn btn-delete">Delete</button>
+                            <button class="btn btn-delete" @click="deleteAsync(gig.id)">Delete</button>
                         </div>
                     </template>
                     
@@ -90,7 +90,7 @@
 <script>
     import { useStore } from 'vuex';
     import { computed, onMounted }  from 'vue';
-    import { fetchAllGigs } from '../../store/gigs/actions/action_creators';
+    import { fetchAllGigs, deleteGig } from '../../store/gigs/actions/action_creators';
     export default {
         name: 'GigsList',
         
@@ -105,10 +105,20 @@
             }
             onMounted(storeAsync)
 
+            const deleteAsync = async (id) => {
+                const args = {
+                    endPoint: `/gigs/delete/${id}`,
+                    method: 'DELETE',
+                    gigId: id
+                }
+                await store.dispatch(deleteGig(args)) 
+            }
+
             return {
                 storeAsync,
                 gigs: computed(() => store.getters["gigs/gigs"]),
                 loading: computed(() => store.getters.loading),
+                deleteAsync
             }
         }
     }

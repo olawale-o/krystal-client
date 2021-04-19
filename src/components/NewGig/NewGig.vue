@@ -75,8 +75,6 @@
                     method: "POST",
                     body: data
                 }
-                console.log(args)
-
                 await store.dispatch(newGigs(args))
                 
                 if(loading.value){
