@@ -46,7 +46,7 @@
             const currentStepIdx = ref(0);
             const stepCounter =  ref(0);
             const store  = useStore();
-            console.log(computed(() => store.getters.count))
+            const loading = computed(() => store.getters.loading)
             const updateCounter = () => {
                 currentStepIdx.value++;
             }
@@ -79,6 +79,10 @@
 
                 await store.dispatch(newGigs(args))
                 
+                if(loading.value){
+                    
+                    onHideForm()
+                }
                 
             }
 

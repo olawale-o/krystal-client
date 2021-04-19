@@ -28,8 +28,8 @@
                 </div>
                 <div class="inputs">
                     <div>
-                        <Field class="input" name="country" as ="select" >
-                            <option>Location</option>
+                        <Field class="input" name="country" as ="select">
+                            <option value="">Location</option>
                             <option value="1">Nigeria</option>
                         </Field>
                         <ErrorMessage name="country" class="error" as="span" />

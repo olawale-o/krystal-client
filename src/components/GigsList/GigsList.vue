@@ -95,7 +95,6 @@
         name: 'GigsList',
         
         setup(){
-
             const store  = useStore();
             let args = {
                 endPoint: "/gigs/all",
