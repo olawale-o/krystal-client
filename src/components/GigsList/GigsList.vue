@@ -6,7 +6,7 @@
 
             <div class="all__gigs-tab-button">
                 <span class="gig__text">All gigs</span>
-                <button class="btn gig-btn">3404</button>
+                <button class="btn gig-btn">3404</button> 
             </div>
 
             <div class="filter__sections">
@@ -51,18 +51,18 @@
             <div class="gigs__table">
 
                 <div class="gigs__table-head">
-                    <span></span>
+                    <span class=""></span>
                     <span class="head__text">Role</span>
                     <span class="head__text">Company</span>
                     <span class="head__text">Data <i class='bx bx-sort-alt-2 color-icon'></i></span>
                     <span class="head__text">Salary <i class='bx bx-sort-alt-2 color-icon' ></i></span>
-                    <span class="head__text"></span>
+                    <span class=""></span>
                 </div>
                 <div class="gigs__table-content">
                     <template v-if="!loading">
                         <div class="gigs_data" v-for="gig in gigs" :key="gig.id">
                             <span>
-                                <input type="checkbox" name="" id="">
+                                <input type="checkbox" @click="$emit('showNewGigForm', gig.id)" >
                             </span>
                             <span class="data__text">
                                 {{ gig.role }}
@@ -89,13 +89,14 @@
 
 <script>
     import { useStore } from 'vuex';
-    import { computed, onMounted }  from 'vue';
+    import { computed, onMounted}  from 'vue';
     import { fetchAllGigs, deleteGig } from '../../store/gigs/actions/action_creators';
     export default {
         name: 'GigsList',
         
         setup(){
             const store  = useStore();
+            
             let args = {
                 endPoint: "/gigs/all",
                 method: 'GET'
@@ -113,12 +114,14 @@
                 }
                 await store.dispatch(deleteGig(args)) 
             }
+            
+         
 
             return {
                 storeAsync,
                 gigs: computed(() => store.getters["gigs/gigs"]),
                 loading: computed(() => store.getters.loading),
-                deleteAsync
+                deleteAsync,
             }
         }
     }

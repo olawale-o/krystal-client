@@ -23,12 +23,25 @@
 </template>
 
 <script>
-    import { Field , ErrorMessage} from 'vee-validate';
+
+    
+    import { Field, ErrorMessage,  } from 'vee-validate';
+    import { computed , ref} from 'vue';
+    import {useStore } from 'vuex';
     export default {
         name: 'Renumeration',
         components: { Field, ErrorMessage },
         setup() {
 
+
+            const store =  useStore()
+            const gig = computed(() => store.getters["gigs/gig"]).value
+            const min_salary = ref(gig?.min_salary ?? '')
+            const max_salary = ref(gig?.max_salary ?? '')
+            return{
+                
+                min_salary,max_salary
+            }
         }
     }
 </script>
@@ -36,3 +49,5 @@
 <style src="./Renumeration.css" scoped>
 
 </style>
+
+    

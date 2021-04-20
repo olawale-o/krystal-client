@@ -23,18 +23,24 @@
     opacity: 1;
     padding: 1.5rem;
     align-self: start;
+    display: flex;
 }
+
 .new-gig__left-item:first-child{
     margin-top: 0;
 }
 .new-gig__left-item{
-    margin-top: 1rem;
+    margin-top: 3rem;
+    color: #565D74;
 }
+
 .new-gig__left-item h6{
     font: normal normal normal 2rem/2.3rem "Karla";
     letter-spacing: -1px;
-    color: #565D74;
-    opacity: 0.3;
+    
+}
+.active-trend{
+    color: #FBB30B;
 }
 .new-gig__form-right{
     padding: 1rem;

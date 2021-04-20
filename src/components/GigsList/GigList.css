@@ -3,9 +3,10 @@
     background: #FBFBFF 0% 0% no-repeat padding-box;
     opacity: 1;
 }
+
 .all__gigs-tab-button {
-    padding: 0 3rem;
-    border-bottom: 1px solid #ECECEC;
+    padding: 0 3rem 1.2rem;
+    border-bottom: 1px solid #FBB30B;
     display: flex;
 }
 .filter__sections{
@@ -62,6 +63,7 @@
     color: #565D74;
     opacity: 0.8;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
 }
 .gigs__table-content{

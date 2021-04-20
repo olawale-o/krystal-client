@@ -3,7 +3,7 @@
         <h4 class="page">
             Gigs
         </h4>
-        <button class="btn btn-gig" @click="$emit('showNewGigForm')" v-if="!isShow">
+        <button class="btn btn-gig" @click="$emit('showNewGigForm',0)" v-if="!isShow">
             <span>New gig</span>
             <i class='bx bx-plus'></i>
         </button>
