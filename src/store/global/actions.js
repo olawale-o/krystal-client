@@ -4,6 +4,12 @@ export let actions = {
             type: type,
             credentials: payload
         })
+    },
+    editing({ commit }, { type, payload }) {   
+        commit({
+            type: type,
+            credentials: payload
+        })
     }
 
 }

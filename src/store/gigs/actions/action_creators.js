@@ -1,4 +1,4 @@
-import {  GET_GIGS , ADD_GIGS, DELETE_GIG, LOADING } from './action_types';
+import {  GET_GIGS , ADD_GIGS, DELETE_GIG, EDIT_GIG ,LOADING , GET_GIG} from './action_types';
 
 export const fetchAllGigs = (payload) => ({
     type: GET_GIGS,
@@ -12,6 +12,16 @@ export const newGigs = (payload) => ({
 
 export const deleteGig = (payload) => ({
     type: DELETE_GIG,
+    payload: payload
+})
+
+export const editGig = (payload) => ({
+    type: EDIT_GIG,
+    payload: payload
+})
+
+export const singleGig = (payload) => ({
+    type: GET_GIG,
     payload: payload
 })
 

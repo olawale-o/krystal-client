@@ -14,5 +14,13 @@ export const gigsMutations = {
         state.gigs = state.gigs.filter((gig) => gig.id != credentials)
     },
 
+    editGig(state,{ credentials }) {
+        state.gigs = [credentials,...state.gigs]
+    },
+
+    singleGig(state,{ credentials }) {
+        state.gig = state.gigs.find((gig) => gig.id == credentials)
+    },
+
 
 }
