@@ -50,11 +50,14 @@ export default function() {
     const removeGig = async (args) => {
         return await connect(args)
     }
+    const updateGig = async (args) => {
+        return await connect(args)
+    }
 
 
     return {
 
-        getAllGigs, addGigs, removeGig
+        getAllGigs, addGigs, removeGig, updateGig
     }
 
 }
