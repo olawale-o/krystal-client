@@ -1,6 +1,8 @@
 <template>
     <div class="new-gig-form" v-if="shouldShow">
-        <slot />
+        <div class="form">
+            <slot />
+        </div>
     </div>
 </template>
 

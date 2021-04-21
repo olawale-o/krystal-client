@@ -29,7 +29,8 @@
                isShow.value = !isShow.value
             }
             return {
-                isShow, onShowNewGigForm, id
+                isShow,id,
+                onShowNewGigForm
             }
         }
     }

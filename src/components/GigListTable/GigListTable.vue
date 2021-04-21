@@ -34,7 +34,10 @@
 
 <script>
     export default {
-        props: ["gigs", "loading"],
+        props: {
+            loading: Boolean,
+            gigs: Object
+        },
         name: 'GigListTable',
 
         setup(){

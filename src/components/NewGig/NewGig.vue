@@ -15,9 +15,10 @@
             </div>
             <div class="new-gig__form-right">
                 <FormWizard 
+                    @submit="onSubmit" 
                     :validation-schema="validationSchema" 
-                    @submit="onSubmit" @hideForm="onHideForm"
                     :initial-values="initialFormValues"
+                    @hideForm="onHideForm"
                 >
                     <FormStep>
                         <NewGigForm  />
@@ -33,15 +34,15 @@
 </template>
 
 <script>
+    import {  ref, computed} from 'vue';
     import { useStore } from 'vuex';
     import { validationSchema, initialValues } from '@/schema';
-    import FormStep from '@/components/FormStep.vue';
     import {provideWrapper} from '@/provideInject';
+    import { newGigs , editGig } from '@/store/gigs/actions/action_creators';
+    import FormStep from '@/components/FormStep.vue';
     import FormWizard from '@/components/FormWizard.vue';
-    import {  ref, computed} from 'vue';
     import Renumeration from '@/components/Renumeration/Renumeration.vue';
     import NewGigForm from '@/components/NewGigForm/NewGigForm.vue';
-    import { newGigs , editGig } from '@/store/gigs/actions/action_creators';
    
     
     export default {

@@ -1,20 +1,17 @@
 <template>
-
-    <div class="form">
-        <div class="field">
-            <div class="field__row">
-                <div class="labels">
-                    <label for="role">Salary</label>
+    <div class="field">
+        <div class="field__row">
+            <div class="labels">
+                <label for="role">Salary</label>
+            </div>
+            <div class="inputs">
+                <div>
+                    <Field type="text" class="input" name="min_salary" placeholder="Minimum" />
+                    <ErrorMessage name="min_salary" class="error" as="span" />
                 </div>
-                <div class="inputs">
-                    <div>
-                        <Field type="text" class="input" name="min_salary" placeholder="Minimum" />
-                        <ErrorMessage name="min_salary" class="error" as="span" />
-                    </div>
-                    <div>
-                        <Field type="text" class="input" name="max_salary" placeholder="Maximum" />
-                        <ErrorMessage name="max_salary" class="error" as="span"/>
-                    </div>
+                <div>
+                    <Field type="text" class="input" name="max_salary" placeholder="Maximum" />
+                    <ErrorMessage name="max_salary" class="error" as="span"/>
                 </div>
             </div>
         </div>
