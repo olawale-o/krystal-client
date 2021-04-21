@@ -47,40 +47,12 @@
                     </span>
                 </button>
             </div>
-
-            <div class="gigs__table">
-
-                <div class="gigs__table-head">
-                    <span class=""></span>
-                    <span class="head__text">Role</span>
-                    <span class="head__text">Company</span>
-                    <span class="head__text">Data <i class='bx bx-sort-alt-2 color-icon'></i></span>
-                    <span class="head__text">Salary <i class='bx bx-sort-alt-2 color-icon' ></i></span>
-                    <span class=""></span>
-                </div>
-                <div class="gigs__table-content">
-                    <template v-if="!loading">
-                        <div class="gigs_data" v-for="gig in gigs" :key="gig.id">
-                            <span>
-                                <input type="checkbox" @click="$emit('showNewGigForm', gig.id)" >
-                            </span>
-                            <span class="data__text">
-                                {{ gig.role }}
-                            </span>
-                            <span class="data__text"> {{ gig.company }} </span>
-                            <span class="data__text">{{  gig.created_at }}</span>
-                            <span class="data__text">{{ gig.min_salary }} - {{ gig.max_salary }}</span>
-                            <button class="btn btn-delete" @click="deleteAsync(gig.id)">Delete</button>
-                        </div>
-                    </template>
-                    
-                    <div class="loading__container" v-if="loading">
-                        <div class="loading"></div>
-                    </div>
-                </div>
-            </div>
-
-
+            <GigListTable
+                :gigs="gigs" 
+                :loading="loading" 
+                @deleteGig="deleteAsync"
+                @newGigForm="showNewGigForm"
+            />
         </div>
     </div>
 
@@ -88,13 +60,15 @@
 </template>
 
 <script>
-    import { useStore } from 'vuex';
     import { computed, onMounted}  from 'vue';
-    import { fetchAllGigs, deleteGig } from '../../store/gigs/actions/action_creators';
+    import { useStore } from 'vuex';
+    import { fetchAllGigs, deleteGig } from '@/store/gigs/actions/action_creators';
+    import GigListTable  from '@/components/GigListTable/GigListTable';
     export default {
         name: 'GigsList',
-        
-        setup(){
+        components: {GigListTable},
+        emits: ['showNewGigForm'],
+        setup(props, {emit}){
             const store  = useStore();
             
             let args = {
@@ -104,8 +78,6 @@
             const storeAsync = async () => {
                 await store.dispatch(fetchAllGigs(args));
             }
-            onMounted(storeAsync)
-
             const deleteAsync = async (id) => {
                 const args = {
                     endPoint: `/gigs/delete/${id}`,
@@ -114,19 +86,24 @@
                 }
                 await store.dispatch(deleteGig(args)) 
             }
+
+            const showNewGigForm = (gig) => {
+                emit('showNewGigForm', gig)
+            }
             
-         
+            onMounted(storeAsync)
+
 
             return {
-                storeAsync,
+                storeAsync,deleteAsync,
                 gigs: computed(() => store.getters["gigs/gigs"]),
                 loading: computed(() => store.getters.loading),
-                deleteAsync,
+                showNewGigForm
             }
         }
     }
 </script>
 
-<style src= "./GigList.css"  scoped>
+<style src= "./GigList.css">
 
 </style>
