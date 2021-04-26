@@ -8,8 +8,11 @@ export const validationSchema = yup.object().shape({
     region: yup.string().required().label('region'),
     address: yup.string().required().label('address'),
     tags: yup.string().required().label('tags'),
-    min_salary: yup.string().required().label('min_salary'),
-    max_salary: yup.string().required().label('max_salary')
+    min_salary: yup.string().required().label('Min Salary'),
+    max_salary: yup.string().required().label('Max Salary')
+    // .test('greater', 'Max salary is less than Min Salary', (value) => {
+    //     return value > yup.ref('min_salary')
+    // })
 });
 
 
