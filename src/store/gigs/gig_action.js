@@ -15,20 +15,27 @@ export const gigActions  = {
 
     async fetchAllGigs({ dispatch, commit }, { type, payload }){
 
-        let actionType =  type.split("/")[1]
-        dispatch({type: "loading", payload: true}, {root:true});
+        try {
+            
+            let actionType =  type.split("/")[1]
+            dispatch({type: "loading", payload: true}, {root:true});
+            const {response: { gigs } } = await getAllGigs(payload);
+            
+            if(gigs) {
 
-        
-        const {response: { gigs } } = await getAllGigs(payload);
-        
-        if(gigs) {
-
-            commit({
-                type: actionType,
-                credentials: gigs
-            });
+                dispatch({type: "error", payload: null}, {root: true});
+                commit({
+                    type: actionType,
+                    credentials: gigs
+                });
+                dispatch({type: "loading", payload: false}, {root: true});
+            }
+        } catch (error) {
             dispatch({type: "loading", payload: false}, {root: true});
+            dispatch({type: "error", payload: error.message}, {root: true});
         }
+
+        
     },
 
     async newGigs({ dispatch,commit }, {type, payload }){

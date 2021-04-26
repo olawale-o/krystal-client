@@ -23,9 +23,9 @@ export default function() {
         }
         const response = await fetch(uri,options)
         if ( !response.ok ) {
-            const error = await response.json();
+            const { message } = await response.json();
             
-            throw new Error(error['response']['message']);
+            throw new Error(message);
         }
 
         return await response.json();
@@ -39,9 +39,8 @@ export default function() {
         const uri = BASE_URI+endPoint; 
         const response = await fetch(uri)
         if ( !response.ok ) {
-            const error = await response.json();
-            
-            throw new Error(error['response']);
+            const {message} = await response.json();
+            throw new Error(message);
         }
 
         return await response.json();
