@@ -1,6 +1,6 @@
 <template>
 
-    <div class="gigs__tabs">
+    <div class="gigs__tabs" ref="tab">
 
         <div class="all__gigs">
 
@@ -50,6 +50,7 @@
             <GigListTable
                 :gigs="gigs" 
                 :loading="loading" 
+                :error="error" 
                 @deleteGig="deleteAsync"
                 @newGigForm="showNewGigForm"
             />
@@ -60,7 +61,7 @@
 </template>
 
 <script>
-    import { computed, onMounted}  from 'vue';
+    import { computed, onMounted, ref}  from 'vue';
     import { useStore } from 'vuex';
     import { fetchAllGigs, deleteGig } from '@/store/gigs/actions/action_creators';
     import GigListTable  from '@/components/GigListTable/GigListTable';
@@ -70,7 +71,7 @@
         emits: ['showNewGigForm'],
         setup(props, {emit}){
             const store  = useStore();
-            
+            const tab =  ref(null)
             let args = {
                 endPoint: "/gigs/all",
                 method: 'GET'
@@ -91,14 +92,19 @@
                 emit('showNewGigForm', gig)
             }
             
-            onMounted(storeAsync)
+            onMounted(() => {
+                console.log(tab.value.querySelector('.all__gigs'))
+                storeAsync()
+            })
 
 
             return {
                 storeAsync,deleteAsync,
                 gigs: computed(() => store.getters["gigs/gigs"]),
                 loading: computed(() => store.getters.loading),
-                showNewGigForm
+                error: computed(() => store.getters.error),
+                showNewGigForm,
+                tab
             }
         }
     }

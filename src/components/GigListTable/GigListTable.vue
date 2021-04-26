@@ -11,18 +11,25 @@
         </div>
         <div class="gigs__table-content">
             <template v-if="!loading">
-                <div class="gigs_data" v-for="gig in gigs" :key="gig.id">
-                    <span>
-                        <input type="checkbox" @click="$emit('newGigForm', gig.id)" >
-                    </span>
-                    <span class="data__text">
-                        {{ gig.role }}
-                    </span>
-                    <span class="data__text"> {{ gig.company }} </span>
-                    <span class="data__text">{{  gig.created_at }}</span>
-                    <span class="data__text">{{ gig.min_salary }} - {{ gig.max_salary }}</span>
-                    <button class="btn btn-delete" @click="$emit('deleteGig',gig.id)">Delete</button>
-                </div>
+                <template v-if="!error">
+                    <div class="gigs_data" v-for="gig in gigs" :key="gig.id">
+                        <span>
+                            <input type="checkbox" @click="$emit('newGigForm', gig.id)" >
+                        </span>
+                        <span class="data__text">
+                            {{ gig.role }}
+                        </span>
+                        <span class="data__text"> {{ gig.company }} </span>
+                        <span class="data__text">{{  gig.created_at }}</span>
+                        <span class="data__text">{{ gig.min_salary }} - {{ gig.max_salary }}</span>
+                        <button class="btn btn-delete" @click="$emit('deleteGig',gig.id)">Delete</button>
+                    </div>
+                </template>
+                <template v-else>
+                    <div class="loading__container">
+                        <p class="error">{{ error }}</p>
+                    </div>
+                </template>
             </template>
             
             <div class="loading__container" v-if="loading">
@@ -36,7 +43,8 @@
     export default {
         props: {
             loading: Boolean,
-            gigs: Object
+            gigs: Object,
+            error: String
         },
         name: 'GigListTable',
 
