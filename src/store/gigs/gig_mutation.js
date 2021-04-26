@@ -6,8 +6,8 @@ export const gigsMutations = {
         state.gigs = payload.credentials
     },
 
-    newGigs(state,payload) {
-        state.gigs = [payload.credentials,...state.gigs]
+    newGigs(state,{ credentials }) {
+        state.gigs = [credentials,...state.gigs]
     },
 
     deleteGig(state,{ credentials }) {

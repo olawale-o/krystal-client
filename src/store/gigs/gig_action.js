@@ -1,5 +1,4 @@
-import routes from '@/routes';
-const { getAllGigs,addGigs,removeGig, updateGig } = routes();
+import { getAllGigs,addGigs,removeGig, updateGig } from '@/routes';
 
 
 export const gigActions  = {
@@ -44,12 +43,11 @@ export const gigActions  = {
         
         let actionType =  type.split("/")[1]
         
-        const {response: { gigs } } = await addGigs(payload);
-        if(gigs) {
-            
+        const { response: {data}  } = await addGigs(payload);
+        if(data) {
             commit({
                 type: actionType,
-                credentials: payload
+                credentials: data
             });
             dispatch({type: "loading", payload: false}, { root: true });
         }
