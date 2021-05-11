@@ -6,8 +6,14 @@
 
 .all__gigs-tab-button {
     padding: 0 3rem 1.2rem;
-    border-bottom: 1px solid #FBB30B;
     display: flex;
+    transition: all 500ms linear ;
+}
+.active-tab{
+    border-bottom: 1px solid #FBB30B;
+}
+.all__gigs{
+    transition: all 500ms ease-in-out;
 }
 .filter__sections{
     padding: 3rem;
@@ -102,4 +108,16 @@
 }
 .color-icon{
     color: #E18700;
+}
+.tab{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+}
+.tab-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
 }
