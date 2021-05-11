@@ -39,8 +39,8 @@
     import { validationSchema, initialValues } from '@/schema';
     import {provideWrapper} from '@/provideInject';
     import { newGigs , editGig } from '@/store/gigs/actions/action_creators';
-    import FormStep from '@/components/FormStep.vue';
-    import FormWizard from '@/components/FormWizard.vue';
+    import FormStep from '@/components/shared/FormStep.vue';
+    import FormWizard from '@/components/shared/FormWizard.vue';
     import Renumeration from '@/components/Renumeration/Renumeration.vue';
     import NewGigForm from '@/components/NewGigForm/NewGigForm.vue';
    
