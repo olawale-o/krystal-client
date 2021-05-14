@@ -1,5 +1,5 @@
 <template>
-    <div div class="all__gigs" v-show="title == selectedTitle">
+    <div div class="all__gigs" v-show="title == selectedTitle.title">
         <slot />
     </div>
 </template>
