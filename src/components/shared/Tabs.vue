@@ -2,7 +2,7 @@
     <div class="tab-header">
         <div class="all__gigs-tab-button" 
             v-for="tabTitle in tabTitles" :key="tabTitle.title"
-            @click="selectedTitle = tabTitle.title"
+            @click="selectedTitle = tabTitle"
             :class = "{'active-tab': selectedTitle == tabTitle.title }"
         >
             <span class="gig__text">{{ tabTitle.title  }}</span>
