@@ -1,4 +1,5 @@
-const BASE_URI = process.env.NODE_ENV == "development" ? "http://localhost:8000/api" : "https://powerful-wave-69047.herokuapp.com/api";
+const BASE_URI = process.env.NODE_ENV == "development" ? "http://localhost:8000/api" :  "https://powerful-wave-69047.herokuapp.com/api";
+
 const headers = {
     headers: {
         "Content-type": "application/json;charset=UTF-8",
@@ -22,7 +23,7 @@ export const connect = async (args) => {
     const response = await fetch(uri,options)
     if ( !response.ok ) {
         const { message } = await response.json();
-        
+  
         throw new Error(message);
     }
 

@@ -3,7 +3,7 @@
         <div class="all__gigs-tab-button" 
             v-for="tabTitle in tabTitles" :key="tabTitle.title"
             @click="selectedTitle = tabTitle"
-            :class = "{'active-tab': selectedTitle == tabTitle.title }"
+            :class = "{'active-tab': selectedTitle.title == tabTitle.title }"
         >
             <span class="gig__text">{{ tabTitle.title  }}</span>
             <button class="btn gig-btn">{{ tabTitle.total }}</button> 
