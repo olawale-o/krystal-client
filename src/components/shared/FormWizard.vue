@@ -5,7 +5,7 @@
             <div class="buttons">
                 <button class="btn btn-default" v-if="hasPrevious && !loading" @click="goToPrev">Back</button>
                 <button class="btn btn-default" type="button" v-if="!hasPrevious" @click="$emit('hideForm')">Cancel</button>
-                <button class="btn btn-gig" v-if="!loading">{{ isLastStep ? (editing ? 'Update gig' : 'Add gig') : 'Continue'  }}</button>
+                <button class="btn btn-gig" type="submit" v-if="!loading">{{ isLastStep ? (editing ? 'Update gig' : 'Add gig') : 'Continue'  }}</button>
                 <div class="loading__contaiiner" v-if="loading">
                     <div class="loading"></div>
                 </div>
@@ -44,12 +44,17 @@
         setup(props, {emit}) {
             const store =  useStore()
             const formData = ref({});
-            const { validationSchema, initialValues } = toRefs(props)
+           const {  initialValues} = toRefs(props)
             
             const currentStepIdx = injectWrapper('CURRENT_STEP_INDEX');
             const stepCounter = injectWrapper('STEP_COUNTER');
             const updateCounter  = injectWrapper('UPDATE_COUNTER');
-            const { resetForm, handleSubmit } = useForm({ validationSchema , initialValues,});
+
+            const currentSchema = computed(() => {
+              return props.validationSchema[currentStepIdx.value];
+            });
+
+            const { resetForm, handleSubmit } = useForm({ validationSchema: currentSchema, initialValues  });
             
             const isLastStep = computed(() => {
                 return currentStepIdx.value === stepCounter.value -  1;
@@ -57,14 +62,21 @@
             const hasPrevious =  computed(() => {
                 return currentStepIdx.value > 0;
             });
+            
             const goToPrev = () => {
-                    if(currentStepIdx.value === 0) {
-                        return;
-                    }
-                    currentStepIdx.value--;
+                if(currentStepIdx.value === 0) {
+                  return;
                 }
+                currentStepIdx.value--;
+                resetForm({
+                  values: {
+                  ...formData.value,
+                  },
+                });
+            }
+            
             const onSubmit = handleSubmit((values) => {
-                
+                console.log('wale');
                 formData.value = {
                     ...formData.value,
                     ...values,
@@ -74,7 +86,7 @@
                     values: {
                         ...formData.value
                     }
-                })
+                });
 
 
                 if(!isLastStep.value) {
@@ -86,9 +98,6 @@
                 
                 emit("submit", formData.value);
             });
-
-        
-            
 
             return {
                 onSubmit,isLastStep,hasPrevious,goToPrev,
